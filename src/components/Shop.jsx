@@ -1,6 +1,8 @@
 // import { useState } from 'react'
 import useProductURL from '../utils/useProductURL'
-import '../styles/App.css'
+import '../styles/Shop.css'
+
+
 
 const Product = () => {
   const { productName, productImage, productDescription, error, loading  } = useProductURL();
