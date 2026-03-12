@@ -1,8 +1,13 @@
 import '../styles/HomePage.css';
+import tshirtIcon from "../assets/tshirt-men.svg";
+import dressIcon from "../assets/dress-women.svg";
+import giftIcon from "../assets/gift.svg";
+
+
 
 const HomePage = () => {
 
-    
+
     return (
         <main>
             <section id="HeroSection">
@@ -16,23 +21,28 @@ const HomePage = () => {
                 <h3>Browse by Category</h3>
                 <ul>
                     <li>
-                        <a href="#"></a>
+                        <a href="#">
                         <div className='iconWrapper'>
-
+                            <img src={tshirtIcon} alt="Men's clothing" />
                         </div>
+                        </a>
                         <span>Men's</span>
                     </li>
                     <li> 
-                        <a href="#"></a>
-                        <div className='iconWrapper'>   
+                        <a href="#">
+                        <div className='iconWrapper'>
+                            <img src={dressIcon} alt="Women's Clothing" />   
                         </div>
+                        </a>
                         <span>Women's</span>
                     </li>
                     <li>
-                    <a href="#"></a>
-                        <div className='iconWrapper'>   
-                        </div>
-                        <span>Everything else</span>
+                        <a href="#">
+                            <div className='iconWrapper'>
+                            <img src={giftIcon} alt="Essentials" />      
+                            </div>
+                        </a>
+                            <span>Everything else</span>
                     </li>
                 </ul>
             </section>
