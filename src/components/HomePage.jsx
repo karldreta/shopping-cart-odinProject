@@ -2,6 +2,13 @@ import '../styles/HomePage.css';
 import tshirtIcon from "../assets/tshirt-men.svg";
 import dressIcon from "../assets/dress-women.svg";
 import giftIcon from "../assets/gift.svg";
+import shoeIcon from "../assets/shoes.svg";
+import bagIcon from "../assets/bag.svg";
+import glassesIcon from "../assets/glasses.svg";
+import watchIcon from "../assets/watch.svg";
+import perfumeIcon from "../assets/perfume.svg";
+
+
 
 
 
@@ -23,7 +30,7 @@ const HomePage = () => {
                     <li>
                         <a href="#">
                         <div className='iconWrapper'>
-                            <img src={tshirtIcon} alt="Men's clothing" />
+                            <img src={tshirtIcon} alt="Men's Clothing" />
                         </div>
                         </a>
                         <span>Men's</span>
@@ -35,6 +42,46 @@ const HomePage = () => {
                         </div>
                         </a>
                         <span>Women's</span>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div className='iconWrapper'>
+                            <img src={shoeIcon} alt="Shoes" />      
+                            </div>
+                        </a>
+                            <span>Shoes</span>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div className='iconWrapper'>
+                            <img src={bagIcon} alt="Bags" />      
+                            </div>
+                        </a>
+                            <span>Bags</span>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div className='iconWrapper'>
+                            <img src={glassesIcon} alt="Glasses" />      
+                            </div>
+                        </a>
+                            <span>Glasses</span>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div className='iconWrapper'>
+                            <img src={watchIcon} alt="Watches" />      
+                            </div>
+                        </a>
+                            <span>Watches</span>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div className='iconWrapper'>
+                            <img src={perfumeIcon} alt="Fragrances" />      
+                            </div>
+                        </a>
+                            <span>Fragrances</span>
                     </li>
                     <li>
                         <a href="#">
