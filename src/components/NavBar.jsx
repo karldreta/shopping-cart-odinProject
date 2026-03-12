@@ -1,4 +1,6 @@
 // import { useState } from "react";
+import { Outlet } from "react-router";
+import { Link } from "react-router";
 import '../styles/NavBar.css'
 import homeIcon from '../assets/home.svg'
 import shopIcon from '../assets/shop.svg'
@@ -14,14 +16,15 @@ const NavBar = () => {
             <nav>
             <ul>
                 <li>
-                    <a href="/">
+                   <Link to="/">
                         <img src={homeIcon} alt="Home" />
-                    </a>
+                   </Link>
                 </li>
                 <li>
-                    <a href="/shop">
-                        <img src={shopIcon} alt="Shop" />
-                    </a>
+                    <Link to="product">
+                    <img src={shopIcon} alt="Shop" />
+                    </Link>
+
                 </li>
                 <li>
                     <a href="/cart">
@@ -31,6 +34,7 @@ const NavBar = () => {
             </ul>
             </nav>
         </header>
+        <Outlet />
         </>
     )
 }
