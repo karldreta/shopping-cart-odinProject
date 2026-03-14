@@ -9,7 +9,7 @@ const useProductURL = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products/category/mobile-accessories", {
+    fetch("https://dummyjson.com/products?limit=194", {
       headers: {
         "User-Agent": "the-odin-project"
       }
@@ -20,21 +20,45 @@ const useProductURL = () => {
         }
         return response.json();
       })
-      .then((response) => {
-        console.log(response);
-        // console.log(response.products[0].title)
-        // console.log(response.products[0].images[0])
-        // console.log(response.products[0].description)
-
-        setProductName(response.products[0].title)
-        setProductImage(response.products[0].images[0])
-        setProductDescription(response.products[0].description)
-      })
+      .then((response) => filterCategory(response.products))
+      .then((filteredResponse => {
+        console.log(filteredResponse);
+          // console.log(filteredResponse.length);
+          setProductName(filteredResponse[0].title)
+          setProductImage(filteredResponse[0].images[0])
+          setProductDescription(filteredResponse[0].description)
+      }
+      ))
         .catch((error) => setError(error))
         .finally(() => setLoading(false));
   }, []);
 
+
+
   return { productName, productImage, productDescription, error, loading };
 };
+
+function filterCategory(products) {
+  const  acceptedCategories = [ 
+    "beauty",
+    "fragrances",
+    "mens-shirts",
+    "mens-shoes",
+    "mens-watches",
+    "skin-care",
+    "sunglasses",
+    "tops",
+    "womens-bags",
+    "womens-dresses",
+    "womens-jewellery",
+    "womens-shoes",
+    "womens-watches"
+  ]
+  
+  const filteredResponse = products.filter(data => acceptedCategories.includes(data.category));
+  
+  return filteredResponse;
+  
+}
 
 export default useProductURL;

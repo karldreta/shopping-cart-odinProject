@@ -13,7 +13,10 @@ const Product = () => {
   return (
     <>
       <h1>{productName}</h1>
-      <img src={productImage} alt={"placeholder text"} />
+      <div className='productImageContainer'>
+        <img src={productImage} alt={"placeholder text"} />
+
+      </div>
       <h2>{productDescription}</h2>
     </>
   );

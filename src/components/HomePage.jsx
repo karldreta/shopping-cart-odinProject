@@ -1,5 +1,4 @@
 import { Link } from "react-router";
-
 import tshirtIcon from "../assets/tshirt-men.svg";
 import dressIcon from "../assets/dress-women.svg";
 import giftIcon from "../assets/gift.svg";
