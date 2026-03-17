@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 
 const useProductURL = () => {
-  const [productName, setProductName] = useState(null);
-  const [productImage, setProductImage] = useState(null);
-  const [productDescription, setProductDescription] = useState(null);
+  // const [productName, setProductName] = useState(null);
+  // const [productImage, setProductImage] = useState(null);
+  // const [productDescription, setProductDescription] = useState(null);
+  const [shopProducts, setShopProducts] = useState([]);
 
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -23,10 +24,7 @@ const useProductURL = () => {
       .then((response) => filterCategory(response.products))
       .then((filteredResponse => {
         console.log(filteredResponse);
-          // console.log(filteredResponse.length);
-          setProductName(filteredResponse[0].title)
-          setProductImage(filteredResponse[0].images[0])
-          setProductDescription(filteredResponse[0].description)
+        setShopProducts(filteredResponse)
       }
       ))
         .catch((error) => setError(error))
@@ -35,7 +33,7 @@ const useProductURL = () => {
 
 
 
-  return { productName, productImage, productDescription, error, loading };
+  return { shopProducts, error, loading };
 };
 
 function filterCategory(products) {

@@ -4,21 +4,30 @@ import '../styles/Shop.css'
 
 
 const Shop = () => {
+  const { shopProducts, error, loading  } = useProductURL();
+  // console.log(shopProducts[0]);
+  // shopProducts.map(product => 
+  //   console.log({productName: product.title, productImage:product.images[0], productDescription:product.description  })
+    
+  // );
+
+  
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>A network error was encountered</p>;
+  
   return (
     <main>
-      <Product/>
-      <Product />
+      {
+      shopProducts.map(product => <Product key={product.id} productName={product.title} productImage={product.images[0]} productDescription={product.description}/>)
+      }
     </main>
   )
 }
 
 
 
-const Product = () => {
-  const { productName, productImage, productDescription, error, loading  } = useProductURL();
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>A network error was encountered</p>;
+const Product = ({productName, productImage, productDescription}) => {
 
   return (
     <>
