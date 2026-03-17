@@ -3,6 +3,16 @@ import useProductURL from '../utils/useProductURL'
 import '../styles/Shop.css'
 
 
+const Shop = () => {
+  return (
+    <main>
+      <Product/>
+      <Product />
+    </main>
+  )
+}
+
+
 
 const Product = () => {
   const { productName, productImage, productDescription, error, loading  } = useProductURL();
@@ -12,14 +22,16 @@ const Product = () => {
 
   return (
     <>
-      <h1>{productName}</h1>
+    <div className="productDiv">
+      <p className='productName'>{productName}</p>
       <div className='productImageContainer'>
         <img src={productImage} alt={"placeholder text"} />
 
       </div>
-      <h2>{productDescription}</h2>
+      <p className='productDescription'>{productDescription}</p>
+    </div>
     </>
   );
 };
 
-export default Product
+export default Shop

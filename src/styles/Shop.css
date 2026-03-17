@@ -1,3 +1,31 @@
+.productDiv {
+    box-sizing: border-box;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
+    justify-content:space-between;
+    align-items: center;
+}
 
+.productImageContainer {
+    width: 200px;
+    height: 200px;
+}
 
+.productImageContainer img {
+    width: 100%;
+    height: 100%;
+}
+
+.productDiv p.productName {
+    font-size: large;
+    font-weight: bold;
+}
+
+.productDiv p.productDescription {
+    text-align: justify;
+    font-size: small;
+}
 

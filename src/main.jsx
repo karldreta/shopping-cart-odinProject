@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router";
 import NavBar from "./components/NavBar.jsx";
 import HomePage from './components/HomePage.jsx';
-import Product from './components/Shop.jsx'
+import Shop from './components/Shop.jsx'
 import './index.css'
 
 
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     element: <NavBar />,
     children: [
       {path: '/', element: <HomePage/>},
-      {path: "product", element: <Product />},
+      {path: "product", element: <Shop />},
       // {path: "cart", element: <Cart />}
 
     ]
