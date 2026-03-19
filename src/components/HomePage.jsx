@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useNavigate} from "react-router";
 import tshirtIcon from "../assets/tshirt-men.svg";
 import dressIcon from "../assets/dress-women.svg";
 import giftIcon from "../assets/gift.svg";
@@ -14,7 +14,14 @@ import '../styles/HomePage.css';
 
 
 const HomePage = () => {
+    const navigate = useNavigate();
 
+
+    function handleFilter(category) {
+        handleFilter(category)
+        navigate("/product?category=" + category)
+
+      }
 
     return (
         <main>
@@ -31,67 +38,67 @@ const HomePage = () => {
                 <h3>Browse by Category</h3>
                 <ul>
                     <li>
-                        <a href="#">
+                        <Link to="/product?category=mens">
                         <div className='iconWrapper'>
                             <img src={tshirtIcon} alt="Men's Clothing" />
                         </div>
-                        </a>
+                        </Link>
                         <span>Men's</span>
                     </li>
                     <li> 
-                        <a href="#">
+                        <Link to="/product?category=womens">
                         <div className='iconWrapper'>
                             <img src={dressIcon} alt="Women's Clothing" />   
                         </div>
-                        </a>
+                        </Link>
                         <span>Women's</span>
                     </li>
                     <li>
-                        <a href="#">
+                        <Link to="/product?category=shoes">
                             <div className='iconWrapper'>
                             <img src={shoeIcon} alt="Shoes" />      
                             </div>
-                        </a>
+                        </Link>
                             <span>Shoes</span>
                     </li>
                     <li>
-                        <a href="#">
+                        <Link to="/product?category=bags">
                             <div className='iconWrapper'>
                             <img src={bagIcon} alt="Bags" />      
                             </div>
-                        </a>
+                        </Link>
                             <span>Bags</span>
                     </li>
                     <li>
-                        <a href="#">
+                        <Link to="/product?category=sunglasses">
                             <div className='iconWrapper'>
                             <img src={glassesIcon} alt="Glasses" />      
                             </div>
-                        </a>
+                        </Link>
                             <span>Glasses</span>
                     </li>
                     <li>
-                        <a href="#">
+                        <Link to="/product?category=watches">
                             <div className='iconWrapper'>
                             <img src={watchIcon} alt="Watches" />      
                             </div>
-                        </a>
+                        </Link>
                             <span>Watches</span>
                     </li>
                     <li>
-                        <a href="#">
+                        <Link to="/product?category=fragrances">
                             <div className='iconWrapper'>
                             <img src={perfumeIcon} alt="Fragrances" />      
                             </div>
-                        </a>
+                        </Link>
                             <span>Fragrances</span>
                     </li>
                     <li>
-                        <a href="#">
+                        <Link to="/product?category=essentials">
                             <div className='iconWrapper'>
                             <img src={giftIcon} alt="Essentials" />      
                             </div>
-                        </a>
+                        </Link>
                             <span>Everything else</span>
                     </li>
                 </ul>
