@@ -17,7 +17,7 @@ const Shop = () => {
   if (error) return <p>A network error was encountered</p>;
   
   return (
-    <main>
+    <main id='shop'>
       {
       shopProducts.map(product => <Product key={product.id} productName={product.title} productImage={product.images[0]} productDescription={product.description}/>)
       }
