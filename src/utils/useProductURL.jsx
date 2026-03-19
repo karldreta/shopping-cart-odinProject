@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 
 const useProductURL = () => {
-  // const [productName, setProductName] = useState(null);
-  // const [productImage, setProductImage] = useState(null);
-  // const [productDescription, setProductDescription] = useState(null);
   const [shopProducts, setShopProducts] = useState([]);
 
   const [error, setError] = useState(null);
@@ -23,7 +20,7 @@ const useProductURL = () => {
       })
       .then((response) => filterCategory(response.products))
       .then((filteredResponse => {
-        console.log(filteredResponse);
+        // console.log(filteredResponse);
         setShopProducts(filteredResponse)
       }
       ))

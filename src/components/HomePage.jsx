@@ -1,4 +1,4 @@
-import { Link, useNavigate} from "react-router";
+import { Link } from "react-router";
 import tshirtIcon from "../assets/tshirt-men.svg";
 import dressIcon from "../assets/dress-women.svg";
 import giftIcon from "../assets/gift.svg";
@@ -14,15 +14,6 @@ import '../styles/HomePage.css';
 
 
 const HomePage = () => {
-    const navigate = useNavigate();
-
-
-    function handleFilter(category) {
-        handleFilter(category)
-        navigate("/product?category=" + category)
-
-      }
-
     return (
         <main>
             <section id="HeroSection">
@@ -70,7 +61,7 @@ const HomePage = () => {
                             <span>Bags</span>
                     </li>
                     <li>
-                        <Link to="/product?category=sunglasses">
+                        <Link to="/product?category=glasses">
                             <div className='iconWrapper'>
                             <img src={glassesIcon} alt="Glasses" />      
                             </div>
@@ -94,12 +85,12 @@ const HomePage = () => {
                             <span>Fragrances</span>
                     </li>
                     <li>
-                        <Link to="/product?category=essentials">
+                        <Link to="/product?category=everything">
                             <div className='iconWrapper'>
-                            <img src={giftIcon} alt="Essentials" />      
+                            <img src={giftIcon} alt="everything" />      
                             </div>
                         </Link>
-                            <span>Everything else</span>
+                            <span>Everything</span>
                     </li>
                 </ul>
             </section>

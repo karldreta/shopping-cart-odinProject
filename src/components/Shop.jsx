@@ -5,20 +5,71 @@ import '../styles/Shop.css'
 
 const Shop = () => {
   const { shopProducts, error, loading  } = useProductURL();
-  const [ searchParams, setSearchParams ] = useSearchParams();
+  const [ searchParams ] = useSearchParams();
+  const categoryMap = {
+    everything: [
+      "beauty",
+      "fragrances",
+      "mens-shirts",
+      "mens-shoes",
+      "mens-watches",
+      "skin-care",
+      "sunglasses",
+      "tops",
+      "womens-bags",
+      "womens-dresses",
+      "womens-jewellery",
+      "womens-shoes",
+      "womens-watches"
+    ],
+  
+    mens: [
+      "mens-shirts",
+      "mens-shoes",
+      "mens-watches"
+    ],
+  
+    womens: [
+      "womens-dresses",
+      "womens-shoes",
+      "tops"
+    ],
+  
+    shoes: [
+      "mens-shoes",
+      "womens-shoes"
+    ],
+  
+    bags: [
+      "womens-bags"
+    ],
+  
+    glasses: [
+      "sunglasses"
+    ],
+  
+    watches: [
+      "mens-watches",
+      "womens-watches"
+    ],
+  
+    fragrances: [
+      "fragrances"
+    ]
+  };
+  const filterBy = searchParams.get("category");
 
   
   if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error was encountered</p>;
   
 
-  const filterBy = searchParams.get("category");
 
   function filterProducts(productCategory) {
     if (!productCategory) return shopProducts;
   
     return shopProducts.filter(product =>
-      product.category.includes(productCategory)
+      productCategory.includes(product.category)
     );
   }
 
@@ -28,7 +79,7 @@ const Shop = () => {
   return (
     <main id='shop'>
       {
-      filterProducts(filterBy).map(product => <Product key={product.id} productName={product.title} productImage={product.images[0]} productDescription={product.description}/>)
+      filterProducts(categoryMap[filterBy]).map(product => <Product key={product.id} productName={product.title} productImage={product.images[0]} productDescription={product.description}/>)
       }
     </main>
   )
