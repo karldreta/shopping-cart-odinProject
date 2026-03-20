@@ -1,4 +1,4 @@
-import { useSearchParams } from 'react-router'
+import { Link, useSearchParams } from 'react-router'
 import useProductURL from '../utils/useProductURL'
 import '../styles/Shop.css'
 
@@ -71,23 +71,34 @@ const Shop = () => {
     return shopProducts.filter(product =>
       productCategory.includes(product.category)
     );
-  }
-
-  // console.log(filterProducts());
-  
+  }  
   
   return (
+    <>
+    <nav className='linkFilter'>
+      <ul>
+      <li><Link to="/product?category=mens">Men's</Link></li>
+      <li><Link to="/product?category=womens">Women's</Link></li>
+      <li><Link to="/product?category=shoes">Shoes</Link></li>
+      <li><Link to="/product?category=bags">Bags</Link></li>
+      <li><Link to="/product?category=glasses">Glasses</Link></li>
+      <li><Link to="/product?category=watches">Watches</Link></li>
+      <li><Link to="/product?category=fragrances">Fragrances</Link></li>
+      <li><Link to="/product?category=everything">Everything</Link></li>
+      </ul>
+    </nav>
     <main id='shop'>
       {
-      filterProducts(categoryMap[filterBy]).map(product => <Product key={product.id} productName={product.title} productImage={product.images[0]} productDescription={product.description}/>)
+      filterProducts(categoryMap[filterBy]).map(product => <Product key={product.id} productName={product.title} productImage={product.images[0]} productDescription={product.description} productPrice={product.price}/>)
       }
     </main>
+    </>
   )
 }
 
 
 
-const Product = ({productName, productImage, productDescription}) => {
+const Product = ({productName, productImage, productDescription, productPrice}) => {
 
   return (
     <>
@@ -95,8 +106,8 @@ const Product = ({productName, productImage, productDescription}) => {
       <p className='productName'>{productName}</p>
       <div className='productImageContainer'>
         <img src={productImage} alt={"placeholder text"} />
-
       </div>
+      <p className='productPrice'>{"$" + productPrice}</p>
       <p className='productDescription'>{productDescription}</p>
     </div>
     </>

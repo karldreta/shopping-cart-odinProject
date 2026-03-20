@@ -20,7 +20,7 @@ const useProductURL = () => {
       })
       .then((response) => filterCategory(response.products))
       .then((filteredResponse => {
-        // console.log(filteredResponse);
+        // console.log(filteredResponse[0]);
         setShopProducts(filteredResponse)
       }
       ))

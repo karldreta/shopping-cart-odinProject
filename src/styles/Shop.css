@@ -38,3 +38,28 @@ main#shop {
     font-size: small;
 }
 
+.linkFilter {
+    margin-top: 20px;
+    border: 1px solid green;
+}
+
+.linkFilter ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+
+.linkFilter ul a {
+    color: black;
+    text-decoration: none;
+}
+
+.linkFilter ul a:hover {
+    color: rgb(0, 102, 204);
+    text-decoration: underline;
+
+}
