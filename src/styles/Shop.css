@@ -4,7 +4,7 @@ main#shop {
     grid-template-columns:   repeat(auto-fill, 300px) ;
     gap: 40px;
     padding: 40px;
-    margin: 50px 0;
+    margin: 20px 0 50px 0px;
 }
 
 .productDiv {
@@ -61,5 +61,10 @@ main#shop {
 .linkFilter ul a:hover {
     color: rgb(0, 102, 204);
     text-decoration: underline;
+}
 
+.priceSort.container {
+    border: 1px solid red;
+    margin-top: 50px;
+    display: flex;
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 import useProductURL from '../utils/useProductURL'
 import '../styles/Shop.css'
@@ -58,12 +59,16 @@ const Shop = () => {
     ]
   };
   const filterBy = searchParams.get("category");
+  const [sortOption, setSortOption] = useState(null)
+  const filtered = filterProducts(categoryMap[filterBy]);
+  const sorted = sortProducts(filtered, sortOption);
+
+
 
   
   if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error was encountered</p>;
   
-
 
   function filterProducts(productCategory) {
     if (!productCategory) return shopProducts;
@@ -72,6 +77,22 @@ const Shop = () => {
       productCategory.includes(product.category)
     );
   }  
+
+  function sortProducts(products, sortOption) {
+    if (!sortOption) return products;
+  
+    const sorted = [...products]; 
+  
+    if (sortOption === "low-high") {
+      return sorted.sort((a, b) => a.price - b.price);
+    }
+  
+    if (sortOption === "high-low") {
+      return sorted.sort((a, b) => b.price - a.price);
+    }
+  
+    return products;
+  }
   
   return (
     <>
@@ -87,9 +108,13 @@ const Shop = () => {
       <li><Link to="/product?category=everything">Everything</Link></li>
       </ul>
     </nav>
+    <div className="priceSort container">
+      <button onClick={() => setSortOption("low-high")}>Low - High</button>
+      <button onClick={() => setSortOption("high-low")}>High - Low</button>
+    </div>
     <main id='shop'>
       {
-      filterProducts(categoryMap[filterBy]).map(product => <Product key={product.id} productName={product.title} productImage={product.images[0]} productDescription={product.description} productPrice={product.price}/>)
+      sorted.map(product => <Product key={product.id} productName={product.title} productImage={product.images[0]} productDescription={product.description} productPrice={product.price}/>)
       }
     </main>
     </>
