@@ -126,7 +126,8 @@ const Shop = () => {
 
 
 
-const Product = ({productName, productImage, productDescription, productPrice}) => {
+const Product = ({productName, productImage, productPrice}) => {
+
 
   return (
     <>
@@ -141,7 +142,7 @@ const Product = ({productName, productImage, productDescription, productPrice}) 
             <button className="increase">+</button>
         <button className="decrease">-</button>
       </div>
-      <button>Add to Cart</button>
+      <button onClick={() => console.log(productName)}>Add to Cart</button>
     </div>
     </>
   );
