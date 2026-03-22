@@ -109,8 +109,11 @@ const Shop = () => {
       </ul>
     </nav>
     <div className="priceSort container">
+      <p>Sort Price:</p>
+     <div>
       <button onClick={() => setSortOption("low-high")}>Low - High</button>
       <button onClick={() => setSortOption("high-low")}>High - Low</button>
+     </div>
     </div>
     <main id='shop'>
       {
@@ -133,7 +136,12 @@ const Product = ({productName, productImage, productDescription, productPrice}) 
         <img src={productImage} alt={"placeholder text"} />
       </div>
       <p className='productPrice'>{"$" + productPrice}</p>
-      <p className='productDescription'>{productDescription}</p>
+      <div className="selectQuantityContainer">
+      <input type="text" pattern="[0-9]*" inputMode="numeric" />
+            <button className="increase">+</button>
+        <button className="decrease">-</button>
+      </div>
+      <button>Add to Cart</button>
     </div>
     </>
   );

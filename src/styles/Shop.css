@@ -67,4 +67,14 @@ main#shop {
     border: 1px solid red;
     margin-top: 50px;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.priceSort.container p {
+    margin: 0;
+}
+
+.priceSort.container button {
+    cursor: pointer;
 }
