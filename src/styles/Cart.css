@@ -1,6 +1,24 @@
+main#shoppingCart {
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .cartItemContainer {
     border: 1px solid red;
     display: flex;
+    width: 800px;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.cartItemContainer . 
+.cartItemContainer .imageContainer {
+    width: 200px;
+    height: 200px;
+}
+
+.cartItemContainer .imageContainer img {
+    width: 100%;
+    height: 100%;
+}
