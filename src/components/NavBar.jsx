@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 import { Outlet } from "react-router";
 import { Link } from "react-router";
 import '../styles/NavBar.css'
@@ -9,6 +9,13 @@ import cartIcon from '../assets/cart-shopping.svg'
 
 
 const NavBar = () => {
+    const [cartItems, setCartItems] = useState([]);
+    function addToCart ({productID, productName, productImage, productPrice}) {
+            setCartItems(prev => [{productID, productName, productImage, productPrice}, ...prev]);
+            console.log(cartItems);
+            
+          }
+
     return (
         <>
         <header>
@@ -27,14 +34,14 @@ const NavBar = () => {
 
                 </li>
                 <li>
-                    <a href="/cart">
+                    <Link to="/cart">
                         <img src={cartIcon} alt="Cart" />
-                    </a>
+                    </Link>
                 </li>
             </ul>
             </nav>
         </header>
-        <Outlet />
+        <Outlet context={{ addToCart, cartItems }}/>
         </>
     )
 }

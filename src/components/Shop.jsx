@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { Link, useSearchParams, useOutletContext } from 'react-router'
 import useProductURL from '../utils/useProductURL'
 import '../styles/Shop.css'
 
-
 const Shop = () => {
+  const { addToCart } = useOutletContext()
   const { shopProducts, error, loading  } = useProductURL();
   const [ searchParams ] = useSearchParams();
   const categoryMap = {
@@ -117,7 +117,7 @@ const Shop = () => {
     </div>
     <main id='shop'>
       {
-      sorted.map(product => <Product key={product.id} productName={product.title} productImage={product.images[0]} productDescription={product.description} productPrice={product.price}/>)
+      sorted.map(product => <Product key={product.id} productID={product.id} productName={product.title} productImage={product.images[0]} productDescription={product.description} productPrice={product.price} addToCart={addToCart}/>)
       }
     </main>
     </>
@@ -126,9 +126,8 @@ const Shop = () => {
 
 
 
-const Product = ({productName, productImage, productPrice}) => {
-
-
+const Product = ({productID, productName, productImage, productPrice, addToCart}) => {
+  
   return (
     <>
     <div className="productDiv">
@@ -142,10 +141,13 @@ const Product = ({productName, productImage, productPrice}) => {
             <button className="increase">+</button>
         <button className="decrease">-</button>
       </div>
-      <button onClick={() => console.log(productName)}>Add to Cart</button>
+      <button onClick={() => addToCart({productID, productName, productImage, productPrice,})}>Add to Cart</button>
     </div>
     </>
   );
 };
+
+
+
 
 export default Shop
