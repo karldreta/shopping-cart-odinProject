@@ -143,7 +143,10 @@ const Product = ({productID, productName, productImage, productPrice, addToCart}
       <div className='productImageContainer'>
         <img src={productImage} alt={"placeholder text"} />
       </div>
-      <p className='productPrice'>{"$" + productPrice}</p>
+      <p className='productPrice'>{"$" + productPrice.toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+              })}</p>
       <div className="selectQuantityContainer">
       <input  type="text" 
               pattern="[0-9]*" 

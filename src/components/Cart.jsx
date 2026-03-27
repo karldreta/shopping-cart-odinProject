@@ -19,7 +19,7 @@ const Cart = () => {
                     productID={item.productID} 
                     productImage={item.productImage} 
                     productName={item.productName} 
-                    productPrice={item.productPrice}
+                    totalPrice={item.totalPrice}
                     productQuantity={item.productQuantity}
                     />
                     
@@ -33,15 +33,18 @@ const Cart = () => {
 }
 
 
-const CartItem = ({productImage, productName, productQuantity, productPrice}) => {    
+const CartItem = ({productImage, productName, productQuantity, totalPrice}) => {    
     return (
     <div className="cartItemContainer">
         <div className="imageContainer">
             <img src={productImage}/>
         </div>
         <p>{productName}</p>
-        <p>{productQuantity}</p>
-        <p>{productPrice}</p>
+        <p>{"x" + productQuantity}</p>
+        <p>{"$" + totalPrice.toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+              })}</p>
     </div>
     )
 }

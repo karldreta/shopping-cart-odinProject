@@ -11,7 +11,12 @@ import cartIcon from '../assets/cart-shopping.svg'
 const NavBar = () => {
     const [cartItems, setCartItems] = useState([]);
     function addToCart ({productID, productName, productImage, productQuantity, productPrice}) {
-            setCartItems(prev => [{productID, productName, productImage, productQuantity, productPrice}, ...prev]);
+            const totalPrice = (productQuantity * productPrice);
+            console.log(totalPrice);
+            console.log(cartItems);
+            
+            
+            setCartItems(prev => [{productID, productName, productImage, productQuantity, totalPrice}, ...prev]);
 
             // if (productID === ) {
                 
