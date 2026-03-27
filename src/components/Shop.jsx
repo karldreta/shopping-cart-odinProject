@@ -133,8 +133,9 @@ const Shop = () => {
 
 
 
-const Product = ({productID, productName, productImage, productPrice, productQuantity, addToCart}) => {
-  
+const Product = ({productID, productName, productImage, productPrice, addToCart}) => {
+  const [productQuantity, setProductQuantity] = useState(1);
+
   return (
     <>
     <div className="productDiv">
@@ -144,11 +145,15 @@ const Product = ({productID, productName, productImage, productPrice, productQua
       </div>
       <p className='productPrice'>{"$" + productPrice}</p>
       <div className="selectQuantityContainer">
-      <input type="text" pattern="[0-9]*" inputMode="numeric" value={productQuantity} />
-            <button className="increase">+</button>
+      <input  type="text" 
+              pattern="[0-9]*" 
+              inputMode="numeric" 
+              value={productQuantity} 
+              onChange={e => setProductQuantity(e.target.value)} />
+        <button className="increase">+</button>
         <button className="decrease">-</button>
       </div>
-      <button onClick={() => addToCart({productID, productName, productImage, productQuantity, productPrice,})}>Add to Cart</button>
+      <button onClick={() => addToCart({productID, productName, productImage, productQuantity, productPrice})}>Add to Cart</button>
     </div>
     </>
   );
