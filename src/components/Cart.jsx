@@ -19,7 +19,10 @@ const Cart = () => {
                     productID={item.productID} 
                     productImage={item.productImage} 
                     productName={item.productName} 
-                    productPrice={item.productPrice}/>
+                    productPrice={item.productPrice}
+                    productQuantity={item.productQuantity}
+                    />
+                    
                 
                 ) 
                 }
@@ -30,13 +33,14 @@ const Cart = () => {
 }
 
 
-const CartItem = ({productImage, productName, productPrice}) => {    
+const CartItem = ({productImage, productName, productQuantity, productPrice}) => {    
     return (
     <div className="cartItemContainer">
         <div className="imageContainer">
             <img src={productImage}/>
         </div>
         <p>{productName}</p>
+        <p>{productQuantity}</p>
         <p>{productPrice}</p>
     </div>
     )

@@ -117,7 +117,14 @@ const Shop = () => {
     </div>
     <main id='shop'>
       {
-      sorted.map(product => <Product key={product.id} productID={product.id} productName={product.title} productImage={product.images[0]} productDescription={product.description} productPrice={product.price} addToCart={addToCart}/>)
+      sorted.map(product => <Product key={product.id} 
+        productID={product.id} 
+        productName={product.title} 
+        productImage={product.images[0]} 
+        productDescription={product.description} 
+        productPrice={product.price}
+        productQuantity={1}
+        addToCart={addToCart}/>)
       }
     </main>
     </>
@@ -126,7 +133,7 @@ const Shop = () => {
 
 
 
-const Product = ({productID, productName, productImage, productPrice, addToCart}) => {
+const Product = ({productID, productName, productImage, productPrice, productQuantity, addToCart}) => {
   
   return (
     <>
@@ -137,11 +144,11 @@ const Product = ({productID, productName, productImage, productPrice, addToCart}
       </div>
       <p className='productPrice'>{"$" + productPrice}</p>
       <div className="selectQuantityContainer">
-      <input type="text" pattern="[0-9]*" inputMode="numeric" />
+      <input type="text" pattern="[0-9]*" inputMode="numeric" value={productQuantity} />
             <button className="increase">+</button>
         <button className="decrease">-</button>
       </div>
-      <button onClick={() => addToCart({productID, productName, productImage, productPrice,})}>Add to Cart</button>
+      <button onClick={() => addToCart({productID, productName, productImage, productQuantity, productPrice,})}>Add to Cart</button>
     </div>
     </>
   );
