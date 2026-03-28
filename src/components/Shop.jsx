@@ -153,8 +153,8 @@ const Product = ({productID, productName, productImage, productPrice, addToCart}
               inputMode="numeric" 
               value={productQuantity} 
               onChange={e => setProductQuantity(e.target.value)} />
-        <button className="increase">+</button>
-        <button className="decrease">-</button>
+        <button className="increase" onClick={() => productQuantity < 10 ? setProductQuantity(productQuantity + 1) : productQuantity}>+</button>
+        <button className="decrease" onClick={() => productQuantity > 0 ? setProductQuantity(productQuantity - 1) : productQuantity}>-</button>
       </div>
       <button onClick={() => addToCart({productID, productName, productImage, productQuantity, productPrice})}>Add to Cart</button>
     </div>

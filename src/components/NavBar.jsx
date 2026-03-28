@@ -18,7 +18,7 @@ const NavBar = () => {
             setCartItems(prev => [{productID, productName, productImage, productQuantity, totalPrice}, ...prev]);
 
             // handling duplicates
-            // map the cartItems and check the ID of each item, if the item already exists, add the totalQuantity
+             // map the cartItems and check the ID of each item, if the item already exists, add the totalQuantity
                 // also Quantity should not exceed 10 
                 
             // cartItems.map(item () => item.productID)
