@@ -148,11 +148,24 @@ const Product = ({productID, productName, productImage, productPrice, addToCart}
                 maximumFractionDigits: 2
               })}</p>
       <div className="selectQuantityContainer">
-      <input  type="text" 
+      <input  type="text"
+              placeholder='1 - 10'
               pattern="[0-9]*" 
               inputMode="numeric" 
-              value={productQuantity} 
-              onChange={e => setProductQuantity(e.target.value)} />
+              value={productQuantity}
+              min="1" 
+              max="10" 
+              onChange={(e) => {
+                const value = e.target.value;
+                if (value === "") {
+                  setProductQuantity("");
+                  return;
+                }
+                if (!/^\d+$/.test(value)) return;
+                const num = Number(value);
+                if (num > 10) return;
+                setProductQuantity(num);
+              }}/>
         <button className="increase" onClick={() => productQuantity < 10 ? setProductQuantity(productQuantity + 1) : productQuantity}>+</button>
         <button className="decrease" onClick={() => productQuantity > 0 ? setProductQuantity(productQuantity - 1) : productQuantity}>-</button>
       </div>
