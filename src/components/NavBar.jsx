@@ -15,9 +15,13 @@ const NavBar = () => {
             console.log(totalPrice);
             console.log(cartItems);
             
-            
             setCartItems(prev => [{productID, productName, productImage, productQuantity, totalPrice}, ...prev]);
 
+            // handling duplicates
+            // map the cartItems and check the ID of each item, if the item already exists, add the totalQuantity
+                // also Quantity should not exceed 10 
+                
+            // cartItems.map(item () => item.productID)
             // if (productID === ) {
                 
             // }
@@ -26,7 +30,7 @@ const NavBar = () => {
     return (
         <>
         <header>
-            <h2>Checkpoint</h2>
+            <h2> <Link to="/">Checkpoint</Link></h2>
             <nav>
             <ul>
                 <li>
