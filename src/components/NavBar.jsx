@@ -12,7 +12,10 @@ const NavBar = () => {
     const [cartItems, setCartItems] = useState([]);
     function addToCart ({productID, productName, productImage, productQuantity, productPrice}) {
             if (productQuantity <= 0 || productQuantity > 10 ) return
-
+            if (cartItems.map(item => item.productID).includes(productID)) {
+                alert("Item is already in the cart.");
+                return
+            }
 
             const totalPrice = (productQuantity * productPrice);
             console.log(totalPrice);
