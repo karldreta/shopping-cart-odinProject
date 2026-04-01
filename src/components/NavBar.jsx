@@ -12,16 +12,14 @@ const NavBar = () => {
     const [cartItems, setCartItems] = useState([]);
     function addToCart ({productID, productName, productImage, productQuantity, productPrice}) {
             if (productQuantity <= 0 || productQuantity > 10 ) return
-            if (cartItems.map(item => item.productID).includes(productID)) {
+            if (cartItems.some(item => item.productID === productID)) {
                 alert("Item is already in the cart.");
                 return
             }
 
-            const totalPrice = (productQuantity * productPrice);
-            console.log(totalPrice);
             console.log(cartItems);
             
-            setCartItems(prev => [{productID, productName, productImage, productQuantity, totalPrice}, ...prev]);
+            setCartItems(prev => [{productID, productName, productImage, productQuantity, productPrice}, ...prev]);
 
             // handling duplicates
              // map the cartItems and check the ID of each item, if the item already exists, add the totalQuantity
