@@ -52,13 +52,33 @@ header ul li a:hover {
 
 }
 
+
+div.cartItemsNumber {
+    display: none;
+}
+
+div.cartItemsNumber.show {
+    display: block;
+    border: 1px solid black;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(60%, -70%);
+    color: purple;
+    background-color: white;
+    width: 20px;
+    height: 16px;
+    font-size: 12px;
+    text-align: center;
+}
+
+
 div.modal.show {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     
-    border: 1px solid black;
+    border: 1px solid red;
     background-color: white;
     color: black;
   

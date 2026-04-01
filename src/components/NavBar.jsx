@@ -11,6 +11,7 @@ import cartIcon from '../assets/cart-shopping.svg'
 const NavBar = () => {
     const [cartItems, setCartItems] = useState([]);
     const [modalMessage, setModalMessage] = useState(null)
+    const cartItemsNumber = cartItems.length;
 
     function addToCart ({productID, productName, productImage, productQuantity, productPrice}) {
             if (productQuantity <= 0 || productQuantity > 10 ) return
@@ -54,8 +55,11 @@ const NavBar = () => {
 
                 </li>
                 <li>
-                    <Link to="/cart">
+                    <Link to="/cart" className="cart">
                         <img src={cartIcon} alt="Cart" />
+                        {
+                            cartItemsNumber > 0 ? <div className="cartItemsNumber show">{cartItemsNumber}</div> :  <div className="cartItemsNumber">{cartItemsNumber}</div>
+                        }
                     </Link>
                 </li>
             </ul>
