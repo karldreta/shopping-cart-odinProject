@@ -167,7 +167,7 @@ const Product = ({productID, productName, productImage, productPrice, addToCart}
                 setProductQuantity(num);
               }}/>
         <button className="increase" onClick={() => productQuantity < 10 ? setProductQuantity(productQuantity + 1) : productQuantity}>+</button>
-        <button className="decrease" onClick={() => productQuantity > 0 ? setProductQuantity(productQuantity - 1) : productQuantity}>-</button>
+        <button className="decrease" onClick={() => productQuantity > 1 ? setProductQuantity(productQuantity - 1) : productQuantity}>-</button>
       </div>
       <button onClick={() => addToCart({productID, productName, productImage, productQuantity, productPrice})}>Add to Cart</button>
     </div>
