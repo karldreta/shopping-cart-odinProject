@@ -12,7 +12,7 @@ const Cart = () => {
     
     return (
         <>
-            <h4>ShoppingCart</h4>
+            <h4>Shopping Cart</h4>
             <main id="shoppingCart">
                 {
                    cartItems.map(item => <CartItem 
@@ -50,7 +50,8 @@ const CartItem = ({productImage, productName, productQuantity, productPrice}) =>
             <img src={productImage}/>
         </div>
         <p>{productName}</p>
-        <button className="increaseCartItemQ" onClick={() => handleQuantityChange("increase")}>+</button>
+       <div className="inputContainer">
+       <button className="increaseCartItemQ" onClick={() => handleQuantityChange("increase")}>+</button>
         <input  type="text"
               placeholder='1 - 10'
               pattern="[0-9]*" 
@@ -70,7 +71,8 @@ const CartItem = ({productImage, productName, productQuantity, productPrice}) =>
                 setCartItemQuantity(num);
               }}/>
         <button className="decreaseCartItemQ" onClick={() => handleQuantityChange("decrease")}>-</button>
-        <p>{"$" + cartItemTotal.toLocaleString(undefined, {
+       </div>
+        <p className="price">{"$" + cartItemTotal.toLocaleString(undefined, {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
               })}</p>

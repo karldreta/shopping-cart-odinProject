@@ -148,7 +148,8 @@ const Product = ({productID, productName, productImage, productPrice, addToCart}
                 maximumFractionDigits: 2
               })}</p>
       <div className="selectQuantityContainer">
-      <input  type="text"
+      <input  className='productQuantity'
+              type="text"
               placeholder='1 - 10'
               pattern="[0-9]*" 
               inputMode="numeric" 
@@ -169,7 +170,7 @@ const Product = ({productID, productName, productImage, productPrice, addToCart}
         <button className="increase" onClick={() => productQuantity < 10 ? setProductQuantity(productQuantity + 1) : productQuantity}>+</button>
         <button className="decrease" onClick={() => productQuantity > 1 ? setProductQuantity(productQuantity - 1) : productQuantity}>-</button>
       </div>
-      <button onClick={() => addToCart({productID, productName, productImage, productQuantity, productPrice})}>Add to Cart</button>
+      <button className="addToCart" onClick={() => addToCart({productID, productName, productImage, productQuantity, productPrice})}>Add to Cart</button>
     </div>
     </>
   );

@@ -7,7 +7,7 @@ main {
   }
 
 #HeroSection {
-    border: 1px solid red;
+    border: 3px solid var(--color-accent);
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
@@ -27,16 +27,15 @@ main {
     height: 40px;
 
     text-decoration: none;
-    background-color: rgb(0, 209, 209);
+    background-color: var(--color-accent);
 }
 
 #HeroSection h3 a:hover {
     cursor: pointer;
-    background-color: aqua;
+    background-color: var( --color-accent-hover);
 }
 
 #CategoriesSection {
-    border: 1px solid red;
     margin-top: 100px;
     display: flex;
     flex-direction: column;
@@ -47,7 +46,6 @@ main {
 
 #CategoriesSection ul {
     margin-top: 40px;
-    border: 1px solid green;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -60,7 +58,6 @@ main {
 }
 
 #CategoriesSection ul li {
-    /* border: 1px solid green; */
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -70,7 +67,7 @@ main {
 }
 
 #CategoriesSection ul li a {
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 50%;
     width: 160px;
     height: 160px;
@@ -89,6 +86,6 @@ main {
 }
 
 #CategoriesSection ul li a:hover + span {
-    color: rgb(0, 102, 204);
+    color: var(--color-accent);
     text-decoration: underline;
 }

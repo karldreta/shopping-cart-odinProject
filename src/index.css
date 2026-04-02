@@ -8,7 +8,6 @@
     /* Accent */
     --color-accent: #00ADB5;
   
-    /* Additional (fits your scheme) */
     --color-accent-hover: #00f7ff;   /* darker teal for hover */
     --color-accent-soft: #5FD3D7;    /* lighter teal for highlights */
     --color-border: #2E333B;         /* subtle border tone */
@@ -23,5 +22,24 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var( --color-bg-light);
 }
 
+button {
+  background-color: var(--color-accent);
+  color: var(--color-text-primary);
+  
+  padding: 0.2rem 1.2rem;
+  border: none;
+  
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--color-accent-hover);
+  color: var(--color-bg-dark);
+}
+
+button:active {
+  transform: scale(0.90);
+}
