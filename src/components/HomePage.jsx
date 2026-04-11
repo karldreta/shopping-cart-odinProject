@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import '../styles/HomePage.css';
-import { linkIcons } from "./homePageIcons";
+import { linkIcons } from "./HomePageIcons";
 
 
 

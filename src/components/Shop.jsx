@@ -1,63 +1,14 @@
 import { useState } from 'react'
 import { Link, useSearchParams, useOutletContext } from 'react-router'
 import useProductURL from '../utils/useProductURL'
+import { categoryMap } from './ShopCategories'
+import { linkIcons } from './HomePageIcons'
 import '../styles/Shop.css'
 
 const Shop = () => {
   const { addToCart } = useOutletContext()
   const { shopProducts, error, loading  } = useProductURL();
   const [ searchParams ] = useSearchParams();
-  const categoryMap = {
-    everything: [
-      "beauty",
-      "fragrances",
-      "mens-shirts",
-      "mens-shoes",
-      "mens-watches",
-      "skin-care",
-      "sunglasses",
-      "tops",
-      "womens-bags",
-      "womens-dresses",
-      "womens-jewellery",
-      "womens-shoes",
-      "womens-watches"
-    ],
-  
-    mens: [
-      "mens-shirts",
-      "mens-shoes",
-      "mens-watches"
-    ],
-  
-    womens: [
-      "womens-dresses",
-      "womens-shoes",
-      "tops"
-    ],
-  
-    shoes: [
-      "mens-shoes",
-      "womens-shoes"
-    ],
-  
-    bags: [
-      "womens-bags"
-    ],
-  
-    glasses: [
-      "sunglasses"
-    ],
-  
-    watches: [
-      "mens-watches",
-      "womens-watches"
-    ],
-  
-    fragrances: [
-      "fragrances"
-    ]
-  };
   const filterBy = searchParams.get("category");
   const [sortOption, setSortOption] = useState(null)
   const filtered = filterProducts(categoryMap[filterBy]);
@@ -98,14 +49,7 @@ const Shop = () => {
     <>
     <nav className='linkFilter'>
       <ul>
-      <li><Link to="/product?category=mens">Men's</Link></li>
-      <li><Link to="/product?category=womens">Women's</Link></li>
-      <li><Link to="/product?category=shoes">Shoes</Link></li>
-      <li><Link to="/product?category=bags">Bags</Link></li>
-      <li><Link to="/product?category=glasses">Glasses</Link></li>
-      <li><Link to="/product?category=watches">Watches</Link></li>
-      <li><Link to="/product?category=fragrances">Fragrances</Link></li>
-      <li><Link to="/product?category=everything">Everything</Link></li>
+      {linkIcons.map(link => <Link key={link.name} to={link.to}>{link.name}</Link>)}
       </ul>
     </nav>
     <div className="priceSort container">
