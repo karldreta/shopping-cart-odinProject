@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Link, useSearchParams, useOutletContext } from 'react-router'
 import useProductURL from '../utils/useProductURL'
-import { Product } from './Product'
 import { categoryMap } from './ShopCategories'
 import { linkIcons } from './HomePageIcons'
+import Product from './Product'
 import '../styles/Shop.css'
 
 const Shop = () => {

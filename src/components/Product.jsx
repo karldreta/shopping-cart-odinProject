@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import '../styles/Shop.css'
 
 
 const Product = ({productID, productName, productImage, productPrice, addToCart}) => {
@@ -44,4 +45,4 @@ const Product = ({productID, productName, productImage, productPrice, addToCart}
     );
   };
 
-export {Product}
+export default Product
